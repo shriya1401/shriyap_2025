@@ -1,8 +1,8 @@
 title: Nighthawk Pages 
 description: "Class of 2025"
-owner_name: John Mortensen
-github_username: nighthawkcoders
-github_repo: "student_2025" 
+owner_name: Shriya Paladugu
+github_username: shriya1401
+github_repo: "shriyap_2025" 
 baseurl: "/student_2025"
 future: true
 remote_theme: jekyll/minima

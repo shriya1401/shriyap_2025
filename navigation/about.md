@@ -13,7 +13,6 @@ About : Shriya Paladugu
 
    2. ![I like basketball](image-3.png)
 
-%%html
 
 <style>
     /* Style looks pretty compact, trace grid-container and grid-item in the code */
@@ -45,12 +44,12 @@ About : Shriya Paladugu
     var container = document.getElementById("grid_container"); // This container connects to the HTML div
 
     // 2. Define a JavaScript object for our http source and our data rows for the Living in the World grid
+    <h1>Flags:</h1>
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
-        {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - forever"},
-        {"flag": "b/b9/Flag_of_Oregon.svg", "greeting": "Hi", "description": "Oregon - 9 years"},
-        {"flag": "b/be/Flag_of_England.svg", "greeting": "Alright mate", "description": "England - 2 years"},
-        {"flag": "e/ef/Flag_of_Hawaii.svg", "greeting": "Aloha", "description": "Hawaii - 2 years"},
+        {"flag": "4/45/Flag_of_Ireland.svg", "greeting": "Dia duit", "description": "Ireland - 6 years"},
+        {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - 9 years"},
+        {"flag": "b/be/Flag_of_England.svg", "greeting": "Namaste", "description": "India - Origin"},
     ]; 
     
     // 3a. Consider how to update style count for size of container

@@ -13,7 +13,7 @@ About : Shriya Paladugu
 
    2. ![I like basketball](image-3.png)
 
-
+%%html
 <style>
     /* Style looks pretty compact, trace grid-container and grid-item in the code */
     .grid-container {

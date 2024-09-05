@@ -50,6 +50,7 @@ About : Shriya Paladugu
         {"flag": "4/45/Flag_of_Ireland.svg", "greeting": "Dia duit", "description": "Ireland - 6 years"},
         {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - 9 years"},
         {"flag": "b/be/Flag_of_England.svg", "greeting": "Namaste", "description": "India - Origin"},
+        {"flag": "e/ef/Flag_of_Hawaii.svg", "greeting": "Aloha", "description": "Hawaii - 2 years"},
     ]; 
     
     // 3a. Consider how to update style count for size of container

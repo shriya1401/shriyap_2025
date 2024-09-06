@@ -12,8 +12,8 @@ About : Shriya Paladugu
    1. ![Volleyball](image-2.png)
 
    2. ![I like basketball](image-3.png)
-
-
+<img src="https://www.rockstaracademy.com/lib/images/news/basketball.jpeg" alt="I've been playing basketball since 6th grade" width="300" height="200">
+<h1>Places😄: </h1>
 <style>
     /* Style looks pretty compact, trace grid-container and grid-item in the code */
     .grid-container {
@@ -44,6 +44,7 @@ About : Shriya Paladugu
     var container = document.getElementById("grid_container"); // This container connects to the HTML div
 
     // 2. Define a JavaScript object for our http source and our data rows for the Living in the World grid
+    
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
         {"flag": "4/45/Flag_of_Ireland.svg", "greeting": "Dia duit", "description": "Ireland - Born there, and lived there for 5 1/2 years"},
@@ -80,6 +81,7 @@ About : Shriya Paladugu
         // Append the grid item DIV to the container DIV
         container.appendChild(gridItem);
     }
+  
 </script>
 
 

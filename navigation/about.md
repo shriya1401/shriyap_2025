@@ -12,7 +12,7 @@ About : Shriya Paladugu
    1. ![Volleyball](image-2.png)
 
    2. ![I like basketball](image-3.png)
-<img src="https://www.rockstaracademy.com/lib/images/news/basketball.jpeg" alt="I've been playing basketball since 6th grade" width="300" height="200">
+<img src="{{site.baseurl}}/home/shriyap/nighthawk/shriyap_2025/images/basketball.png" alt="I've been playing basketball since 6th grade" width="300" height="200">
 <h1>Places😄: </h1>
 <style>
     /* Style looks pretty compact, trace grid-container and grid-item in the code */

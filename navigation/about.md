@@ -4,16 +4,22 @@ title: About
 permalink: /about/
 ---
 
-About : Shriya Paladugu
+About : Shriya Paladugu, class: 2027
 
-# My name is Shriya Paladugu, I am currently a sophmore in Del Norte High School, 15 years old
+# Shriya Paladugu (Basketball & Volleyball)
 
-# Favorite Sports 
-   1. ![Volleyball](image-2.png)
+<h1>Basketball</h1>
+<img src="{{site.baseurl}}/images/basketball.png" alt="I've been playing basketball since 6th grade" width="300" height="200">
 
-   2. ![I like basketball](image-3.png)
-<img src="{{site.baseurl}}/home/shriyap/nighthawk/shriyap_2025/images/basketball.png" alt="I've been playing basketball since 6th grade" width="300" height="200">
-<h1>Places😄: </h1>
+
+<h2>Places: </h2> 
+<script>
+    // Unicode for the smiley emoji
+    const emoji = String.fromCodePoint(0x1F604);  // 😄
+
+    // Add the emoji to the "Places:" heading
+    document.getElementById('places-heading').textContent += ` ${emoji}`;
+</script>
 <style>
     /* Style looks pretty compact, trace grid-container and grid-item in the code */
     .grid-container {
@@ -33,7 +39,6 @@ About : Shriya Paladugu
         margin: 5px 0; /* Add some margin for spacing */
     }
 </style>
-
 <!-- This grid_container class is for the CSS styling, the id is for JavaScript connection -->
 <div class="grid-container" id="grid_container">
     <!-- content will be added here by JavaScript -->
@@ -84,6 +89,7 @@ About : Shriya Paladugu
   
 </script>
 
+<body style ="background-color:pink;">
 
 
 

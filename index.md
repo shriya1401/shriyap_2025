@@ -5,9 +5,12 @@ description: Home Page
 image: /images/mario_animation.png
 hide: true
 ---
+
+About : Shriya , 2027
 <h3>Favorite basketball teams:</h3>
-<a hfef="https://en.wikipedia.org/wiki/Golden_State_Warriors"></a>
-<a hfef="https://en.wikipedia.org/wiki/Los_Angeles_Lakers"></a>
+<a hfef="https://en.wikipedia.org/wiki/Golden_State_Warriors">Warriors</a>
+
+<a hfef="https://en.wikipedia.org/wiki/Los_Angeles_Lakers">Lakers</a>
 <!-- Liquid:  statements -->
 
 <!-- Include submenu from _includes to top of pages -->
@@ -191,5 +194,5 @@ hide: true
 
 </script>
 
-About : Shriya
+
 

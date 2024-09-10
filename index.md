@@ -5,6 +5,9 @@ description: Home Page
 image: /images/mario_animation.png
 hide: true
 ---
+<h3>Favorite basketball teams:</h3>
+<a hfef="https://en.wikipedia.org/wiki/Golden_State_Warriors"></a>
+<a hfef="https://en.wikipedia.org/wiki/Los_Angeles_Lakers"></a>
 <!-- Liquid:  statements -->
 
 <!-- Include submenu from _includes to top of pages -->

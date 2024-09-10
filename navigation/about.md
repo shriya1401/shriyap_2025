@@ -12,7 +12,7 @@ About : Shriya Paladugu, class: 2027
 <img src="{{site.baseurl}}/images/basketball.png" alt="I've been playing basketball since 6th grade" width="300" height="200">
 
 
-<h2>Places: </h2> 
+<h2>Places: </h2>
 <script>
     // Unicode for the smiley emoji
     const emoji = String.fromCodePoint(0x1F604);  // 😄

@@ -343,7 +343,7 @@ comments: false
         /* Dot for Food or Snake part */
         /////////////////////////////////////////////////////////////
         let activeDot = function(x, y){
-            ctx.fillStyle = "#f0aacc";
+            ctx.font = "20px Aria"
             ctx.fillRect("🏀",x * BLOCK, y * BLOCK);
         }
         /* Random food placement */

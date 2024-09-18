@@ -5,6 +5,7 @@ description: Home Page
 image: /images/mario_animation.png
 hide: true
 ---
+{% include nav/home.html %}
 
 About : Shriya , 2027
 <h3>Favorite basketball teams:</h3>

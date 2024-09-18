@@ -344,7 +344,7 @@ comments: false
         /////////////////////////////////////////////////////////////
         let activeDot = function(x, y){
             ctx.font = "20px Arial";
-            ctx.fillRect("🏀",x * BLOCK, y * BLOCK);
+            ctx.fillText("🏀",x * BLOCK, y * BLOCK);
         }
         /* Random food placement */
         /////////////////////////////////////////////////////////////

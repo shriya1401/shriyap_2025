@@ -24,3 +24,8 @@ header_pages:
   - navigation/search.md
   - navigation/about.md
   - README4YML.md
+
+exclude:
+  - venv/lib
+  - scripts/venv/lib
+

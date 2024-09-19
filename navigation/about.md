@@ -10,6 +10,10 @@ About : Shriya Paladugu, class: 2027
 
 <h1>Basketball</h1>
 <img src="{{site.baseurl}}/images/basketball.png" alt="I've been playing basketball since 6th grade" width="300" height="200">
+<img src="{{site.baseurl}}/images/food.jpg" alt="I love food, my favorites being pasta and pizza." width="300" height="200">
+<img src="{{site.baseurl}}/images/basketball.png" alt="I've been playing basketball since 6th grade" width="300" height="200">
+
+
 
 
 <h2>Places:😄 </h2>

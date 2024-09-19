@@ -2,16 +2,34 @@
 layout: page
 title: About
 permalink: /about/
+comments: true
 ---
 
 About : Shriya Paladugu, class: 2027
 
-# Shriya Paladugu (Basketball & Volleyball)
+# Shriya Paladugu
 
-<h1>Basketball</h1>
-<img src="{{site.baseurl}}/images/basketball.png" alt="I've been playing basketball since 6th grade" width="300" height="200">
-<img src="{{site.baseurl}}/images/food.jpg" alt="I love food, my favorites being pasta and pizza." width="300" height="200">
-<img src="{{site.baseurl}}/images/basketball.png" alt="I've been playing basketball since 6th grade" width="300" height="200">
+<h1>Gallery</h1>
+<img src="{{site.baseurl}}/images/basketball.png" alt="I've been playing basketball since 6th grade" width="250" height="200">
+<img src="{{site.baseurl}}/images/Food.png" alt="My favorite foods being pasta and pizza." width="250" height="200">
+<img src="{{site.baseurl}}/images/Girlscouts.png" alt="I've been doing girl scouts since 5th grade" 
+width="250" height="200">
+<img src="{{site.baseurl}}/images/Iris.png" alt="This is one of my best friends" 
+width="250" height="200">
+
+
+-I've love playing basketball, I have been playing basketball since 6th grade 🏀
+
+-I love playing volleyball 🏐
+
+-My favorite foods are pasta and pizza.  
+
+-I've been doing girl scouts since 5th grade
+
+-One of my best friends is Iris
+
+-My favorite subject is math 📘
+
 
 
 
@@ -91,6 +109,14 @@ About : Shriya Paladugu, class: 2027
         container.appendChild(gridItem);
     }
   
+</script>
+
+<script src="https://utteranc.es/client.js"
+        repo="shriyap_2025"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
 
 <body style ="background-color:pink;">

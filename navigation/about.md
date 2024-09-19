@@ -112,8 +112,9 @@ width="250" height="200">
 </script>
 
 <script src="https://utteranc.es/client.js"
-        repo="shriyap_2025"
-        issue-term="pathname"
+        repo="shriya1401/shriyap_2025"
+        issue-term="title"
+        label="utterances"
         theme="github-light"
         crossorigin="anonymous"
         async>

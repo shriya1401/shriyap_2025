@@ -75,7 +75,7 @@ width="250" height="200">
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
         {"flag": "4/45/Flag_of_Ireland.svg", "greeting": "Dia duit", "description": "Ireland - Born there, and lived there for 5 1/2 years"},
-        {"flag": "4/41/Flag_of_India.svg", "greeting": "Namaste", "description": "India - Origin"},
+        {"flag": "4/41/Flag_of_India.svg", "greeting": "Namaste", "description": "India - Culture"},
         {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "America - 9 1/2 years"},
     ]; 
     

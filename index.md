@@ -81,8 +81,7 @@ About : Shriya , 2027
         <div class="hover-text">-Python Variables, and Javascript variables</div>
     </button>
     
-  <!-- Button 2 -->
-  
+  <!-- Button 2 -->  
   <button class="btn2" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/07/3.2-popcorn_hacks_IPYNB_2_.html'">
         3.2
         <div class="hover-text">-Integers, Floats, Strings, Lists, Tuples, Dictionaries, Sets, Booleans, None</div>
@@ -90,36 +89,31 @@ About : Shriya , 2027
     
    <!-- Button 4 -->
   <button class="btn4" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.4-Hacks_IPYNB_2_.html'">
-         3.4
+        3.4
         <div class="hover-text">-Java script strings, python strings</div>
     </button>
-</div>
 
    <!-- Button 6 -->
   <button class="btn6" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.6-Hacks_IPYNB_2_.html'">
-         3.6
+        3.6
         <div class="hover-text">-If/else statements, comparision operators</div>
     </button>
-</div>
 
    <!-- Button 7 -->
   <button class="btn7" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.7-Hacks_IPYNB_2_.html'">
-         3.7
+        3.7
         <div class="hover-text">-Nested Conditionals</div>
     </button>
-</div>
 
    <!-- Button 8 -->
   <button class="btn8" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.8-Hacks_IPYNB_2_.html'">
-         3.8
+        3.8
         <div class="hover-text">-For loops, While_Do loops, Index loops, & Continue + Break commands</div>
     </button>
-</div>
-
 
    <!-- Button 10 -->
   <button class="btn10" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.10-Hacks_IPYNB_2_.html'">
-         3.10
+        3.10
         <div class="hover-text">-List Operations, Pseudocode, List Functions, and List Inputs</div>
     </button>
 </div>

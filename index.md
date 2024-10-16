@@ -13,8 +13,6 @@ About : Shriya , 2027
 
 <a href="https://en.wikipedia.org/wiki/Los_Angeles_Lakers">Lakers</a>
 
-# HTML code with text underneath the button, light grey transparent background on hover, and updated styles
-html_code = """
 <head>
     <!-- Link to Google Fonts for 'Poppins' font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -38,8 +36,12 @@ html_code = """
         /* Color changes for each button */
         .btn1 { background-color: #ffcccb; }
         .btn2 { background-color: #fffacd; }
-        .btn3 { background-color: #ffd580; }
-        .btn4 { background-color: #add8e6; }
+        .btn4 { background-color: #ffd580; }
+        .btn6 { background-color: #add8e6; }
+        .btn7 { background-color: #ffcccb; }
+        .btn8 { background-color: #fffacd; }
+        .btn10 { background-color: #ffd580; }
+        
 
         /* Hover effect - Text color change and button lift */
         button:hover {
@@ -74,34 +76,97 @@ html_code = """
 
 <div style="text-align: center;">
     <!-- Button 1 -->
-    <button class="btn1" onclick="window.location.href = '/home/shriyap/nighthawk/shriyap_2025/_notebooks/sprint 2/2024-10-7-3.1-popcornhacks.ipynb'">
-        Button 1
+    <button class="btn1" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/07/3.1-popcornhacks_IPYNB_2_.html'">
+        3.1
         <div class="hover-text">-Python Variables, and Javascript variables</div>
     </button>
     
   <!-- Button 2 -->
   
-  <button class="btn2" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/07/3.1-popcornhacks_IPYNB_2_.html'">
-        Button 2
-        <div class="hover-text">Hovered over Button 2!</div>
-    </button>
-    
-  <!-- Button 3 -->
-  <button class="btn3" onclick="window.location.href = '2024-10-4-3.4-Hacks.ipynb'">
-        Button 3
-        <div class="hover-text">Hovered over Button 3!</div>
+  <button class="btn2" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/07/3.2-popcorn_hacks_IPYNB_2_.html'">
+        3.2
+        <div class="hover-text">-Integers, Floats, Strings, Lists, Tuples, Dictionaries, Sets, Booleans, None</div>
     </button>
     
    <!-- Button 4 -->
-  <button class="btn4" onclick="window.location.href = '2024-10-4-3.6-Hacks.ipynb'">
-        Button 4
-        <div class="hover-text">Hovered over Button 4!</div>
+  <button class="btn4" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.4-Hacks_IPYNB_2_.html'">
+         3.4
+        <div class="hover-text">-Java script strings, python strings</div>
+    </button>
+</div>
+
+   <!-- Button 6 -->
+  <button class="btn6" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.6-Hacks_IPYNB_2_.html'">
+         3.6
+        <div class="hover-text">If/else statements, comparision operators</div>
+    </button>
+</div>
+
+   <!-- Button 7 -->
+  <button class="btn7" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.7-Hacks_IPYNB_2_.html'">
+         3.7
+        <div class="hover-text">Nested Conditionals</div>
+    </button>
+</div>
+
+   <!-- Button 8 -->
+  <button class="btn8" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.8-Hacks_IPYNB_2_.html'">
+         3.8
+        <div class="hover-text">-For loops, While_Do loops, Index loops, & Continue + Break commands</div>
+    </button>
+</div>
+
+
+   <!-- Button 10 -->
+  <button class="btn10" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.10-Hacks_IPYNB_2_.html'">
+         3.10
+        <div class="hover-text">List Operations, Pseudocode, List Functions, and List Inputs</div>
     </button>
 </div>
 """
 
-# Display the buttons with hover effect and redirection
-display(HTML(html_code))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 
 <!-- Liquid:  statements -->
 
@@ -139,7 +204,7 @@ display(HTML(html_code))
 </style>
 
 <!--- Embedded executable code--->
-<script>
+//<script>
   ////////// convert YML hash to javascript key:value objects /////////
 
   var mario_metadata = {}; //key, value object
@@ -284,7 +349,7 @@ display(HTML(html_code))
     mario.startResting();
   });
 
-</script>
+</script> -->
 
 
 

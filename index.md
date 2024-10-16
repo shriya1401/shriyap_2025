@@ -13,6 +13,8 @@ About : Shriya , 2027
 
 <a href="https://en.wikipedia.org/wiki/Los_Angeles_Lakers">Lakers</a>
 
+
+# Lesson Acomplishments
 <head>
     <!-- Link to Google Fonts for 'Poppins' font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -52,24 +54,25 @@ About : Shriya , 2027
         button .hover-text {
             display: none; /* Initially hidden */
             position: absolute;
-            bottom: -60px; /* Place it further down from the button */
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 10px; /* Text size */
-            font-weight: bold;
-            color: black; /* Text color */
+            top: -30px; /* Positioned relative to the button */
+            right: 10px; /* Position text towards the top-right corner */
+            font-size: var(--hover-text-size, 12px); /* Dynamic font size via CSS variable */
+            font-weight: var(--hover-text-weight, bold); /* Dynamic font weight */
+            color: var(--hover-text-color, black); /* Dynamic text color */
             opacity: 0; /* Initially hidden */
             pointer-events: none;
             transition: opacity 0.3s ease, background-color 0.3s ease;
             background-color: rgba(211, 211, 211, 0.5); /* Light grey background with transparency */
             padding: 5px 10px; /* Padding inside the text box */
             border-radius: 4px;
+            transform: translateY(10px); /* Slight shift when hidden */
         }
-
+     
         /* Show the text when hovering over the button */
         button:hover .hover-text {
             display: block;
             opacity: 1; /* Show the text */
+            transform: translateY(0); /* Reset shift for smoother transition */
         }
     </style>
 </head>

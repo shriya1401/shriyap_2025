@@ -121,14 +121,6 @@ About : Shriya , 2027
     </button>
 </div>
 
-   <!-- Button 11 -->
-  <button class="btn11" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.10-Hacks_IPYNB_2_.html'">
-        3.10
-        <div class="hover-text">-List Operations, Pseudocode, List Functions, and List Inputs</div>
-    </button>
-</div>
-"""
-
 
 
 

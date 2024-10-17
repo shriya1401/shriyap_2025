@@ -1,3 +1,11 @@
+---
+layout: page
+title: Wordle
+permalink: /wordle/
+---
+
+{% include nav/home.html %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

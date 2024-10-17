@@ -43,6 +43,7 @@ About : Shriya , 2027
         .btn7 { background-color: #ffcccb; }
         .btn8 { background-color: #fffacd; }
         .btn10 { background-color: #ffd580; }
+        .btn11 { background-color: #add8e6; }
         
 
         /* Hover effect - Text color change and button lift */
@@ -118,6 +119,13 @@ About : Shriya , 2027
   <button class="btn10" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/04/3.10-Hacks_IPYNB_2_.html'">
         3.10
         <div class="hover-text">-List Operations, Pseudocode, List Functions, and List Inputs</div>
+    </button>
+</div>
+
+   <!-- Button 11 -->
+  <button class="btn11" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/15/final_project_IPYNB_2_.html'">
+        3.11
+        <div class="hover-text">-Final Project</div>
     </button>
 </div>
 

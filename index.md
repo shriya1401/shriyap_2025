@@ -55,7 +55,7 @@ About : Shriya , 2027
         button .hover-text {
             display: none; /* Initially hidden */
             position: absolute;
-            top: -30px; /* Positioned relative to the button */
+            top: 70px; /* Positioned relative to the button */
             right: 10px; /* Position text towards the top-right corner */
             font-size: var(--hover-text-size, 12px); /* Dynamic font size via CSS variable */
             font-weight: var(--hover-text-weight, bold); /* Dynamic font weight */
@@ -75,6 +75,7 @@ About : Shriya , 2027
             opacity: 1; /* Show the text */
             transform: translateY(0); /* Reset shift for smoother transition */
         }
+
     </style>
 </head>
 
@@ -123,7 +124,7 @@ About : Shriya , 2027
 
    <!-- Button 11 -->
   <button class="btn11" onclick="window.location.href = 'https://shriya1401.github.io/shriyap_2025/2024/10/15/final_project_IPYNB_2_.html'">
-        3.11
+        Final Project
         <div class="hover-text">-Final Project</div>
     </button>
 </div>

@@ -1,3 +1,8 @@
+$(DESTINATION_DIRECTORY)/sprint\ second/%_IPYNB_2_.md: _notebooks/sprint\ second/%.ipynb
+	@echo "Converting source $< to destination $@"
+	@mkdir -p $(@D)
+	@python -c 'import sys; from scripts.convert_notebooks import convert_single_notebook; convert_single_notebook(sys.argv[1])' "$<"
+
 # Configuration, override port with usage: make PORT=4200
 PORT ?= 4100
 REPO_NAME ?= shriyap_2025

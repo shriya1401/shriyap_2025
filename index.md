@@ -75,7 +75,6 @@ About : Shriya , 2027
             opacity: 1; /* Show the text */
             transform: translateY(0); /* Reset shift for smoother transition */
         }
-
     </style>
 </head>
 

@@ -48,7 +48,6 @@ jobs:
          path: _site
 
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages
@@ -64,3 +63,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+

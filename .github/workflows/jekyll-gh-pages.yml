@@ -43,6 +43,8 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
+        with:
+         path: ./_site  # Specify the built Jekyll site directory
 
   # Deployment job
   deploy:

@@ -20,12 +20,11 @@ minima:
 plugins:
   - jekyll-remote-theme
 
-minima:
-  nav_pages:
-    - navigation/blog.md
-    - navigation/search.md
-    - navigation/about.md
-    - README4YML.md
+header_pages :
+ - navigation/blog.md
+ - navigation/search.md
+ - navigation/about.md
+ - README4YML . md
 
 exclude:
   - venv/lib

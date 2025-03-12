@@ -59,7 +59,7 @@ jobs:
           name: github-pages
           path: _site
       - name: Show Deployment URL
-        run: echo "Deployment URL: ${{ steps.deployment.outputs.page_url }}"
+        run: echo "Deployment URL:${{ steps.deployment.outputs.page_url }}"
 
 
 

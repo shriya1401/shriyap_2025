@@ -29,4 +29,7 @@ header_pages :
 exclude:
   - venv/lib
   - scripts/venv/lib
+  - vendor
+  - Gemfile
+  - Gemfile.lock
 

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Binary Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      background: #ffffff;
+    }
+
+    h2, h3 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      margin-top: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .result, .error {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    .result {
+      background-color: #ecf0f1;
+    }
+
+    .error {
+      background-color: #ffe0e0;
+      color: #c0392b;
+      font-weight: bold;
+    }
+
+    hr {
+      margin: 40px 0 20px;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Binary Calculator</h2>
+
+  <label>Binary 1:</label>
+  <input type="text" id="bin1" placeholder="e.g. 1010">
+
+  <label>Binary 2:</label>
+  <input type="text" id="bin2" placeholder="e.g. 0101">
+
+  <label>Operation:</label>
+  <select id="operation">
+    <option value="add">Add</option>
+    <option value="subtract">Subtract</option>
+    <option value="multiply">Multiply</option>
+    <option value="divide">Divide</option>
+  </select>
+
+  <button onclick="calculate()">Calculate</button>
+
+  <div class="result">
+    <strong>Result (Binary):</strong> <span id="resultBin"></span><br>
+    <strong>Result (Decimal):</strong> <span id="resultDec"></span>
+  </div>
+
+  <div class="error" id="calcError"></div>
+
+  <hr>
+
+  <h3>Decimal to Binary Converter (Extra Credit)</h3>
+
+  <input type="number" id="decInput" placeholder="Enter decimal number">
+  <button onclick="convertDecimal()">Convert</button>
+
+  <div class="result">
+    <strong>Binary:</strong> <span id="decToBinResult"></span>
+  </div>
+
+  <div class="error" id="decError"></div>
+
+  <script>
+    function calculate() {
+      const bin1 = document.getElementById('bin1').value.trim();
+      const bin2 = document.getElementById('bin2').value.trim();
+      const op = document.getElementById('operation').value;
+      const error = document.getElementById('calcError');
+      error.innerText = '';
+
+      if (!bin1 || !bin2) {
+        error.innerText = 'Both binary fields must be filled.';
+        return;
+      }
+
+      if (!/^[01]+$/.test(bin1) || !/^[01]+$/.test(bin2)) {
+        error.innerText = 'Only binary numbers (0 and 1) are allowed.';
+        return;
+      }
+
+      const a = parseInt(bin1, 2);
+      const b = parseInt(bin2, 2);
+      let result;
+
+      switch (op) {
+        case 'add': result = a + b; break;
+        case 'subtract': result = a - b; break;
+        case 'multiply': result = a * b; break;
+        case 'divide':
+          if (b === 0) {
+            error.innerText = 'Division by zero is not allowed.';
+            return;
+          }
+          result = Math.floor(a / b);
+          break;
+      }
+
+      document.getElementById('resultBin').innerText = result.toString(2);
+      document.getElementById('resultDec').innerText = result.toString(10);
+    }
+
+    function convertDecimal() {
+      const dec = document.getElementById('decInput').value.trim();
+      const error = document.getElementById('decError');
+      error.innerText = '';
+
+      if (dec === '') {
+        error.innerText = 'Please enter a decimal number.';
+        return;
+      }
+
+      if (isNaN(dec)) {
+        error.innerText = 'Invalid input.';
+        return;
+      }
+
+      document.getElementById('decToBinResult').innerText = parseInt(dec).toString(2);
+    }
+  </script>
+</body>
+</html>

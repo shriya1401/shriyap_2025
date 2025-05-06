@@ -128,6 +128,26 @@ About : Shriya , 2027
     </button>
 </div>
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Binary Calculator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    input, select, button {
+      margin: 5px;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+
 
 
 

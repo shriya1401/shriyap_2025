@@ -5,6 +5,7 @@
   2. Customize default _includes/custom-head.html in your source directory and insert the given code snippet.
 {% endcomment %}
 
+
 <!-- Include favicons -->
 {%- include favicons.html -%}
 
@@ -92,3 +93,39 @@ document.addEventListener("DOMContentLoaded", function(){
     elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
 });
 </script>
+<!-- Lighten tables while keeping dark theme overall -->
+<style>
+/* Table background fix for Minima dark theme */
+table {
+  background-color: #1e1e1e !important;
+  color: #f5f5f5 !important;
+  border: 1px solid #333 !important;
+  border-radius: 8px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: #2b2b2b !important;
+  color: #fff !important;
+  padding: 10px;
+  border-bottom: 1px solid #444;
+}
+
+td {
+  background-color: #222 !important;
+  color: #f0f0f0 !important;
+  padding: 10px;
+  border-top: 1px solid #333;
+}
+
+tr:nth-child(even) td {
+  background-color: #292929 !important;
+}
+
+/* Optional: soften page background slightly */
+body {
+  background-color: #111 !important;
+  color: #f5f5f5 !important;
+}
+</style>

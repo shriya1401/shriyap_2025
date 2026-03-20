@@ -1,175 +1,138 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Binary Calculator</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      max-width: 500px;
-      margin: 40px auto;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      background: #ffffff;
-    }
-
-    h2, h3 {
-      color: #2c3e50;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 15px;
-    }
-
-    input, select, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-
-    button {
-      background-color: #3498db;
-      color: white;
-      margin-top: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #2980b9;
-    }
-
-    .result, .error {
-      margin-top: 15px;
-      padding: 10px;
-      border-radius: 6px;
-    }
-
-    .result {
-      background-color: #ecf0f1;
-    }
-
-    .error {
-      background-color: #ffe0e0;
-      color: #c0392b;
-      font-weight: bold;
-    }
-
-    hr {
-      margin: 40px 0 20px;
-      border: none;
-      border-top: 1px solid #ccc;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stack & Queue Demo</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #000; color: #fff; padding: 2rem 1rem; }
+  h1 { font-size: 22px; font-weight: 500; margin-bottom: 0.25rem; }
+  .subtitle { font-size: 14px; color: #aaa; margin-bottom: 2rem; }
+  .wrap { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem; }
+  .section { background: #111; border-radius: 12px; border: 1px solid #333; padding: 1.5rem; display: flex; flex-direction: column; gap: 12px; }
+  .section-title { font-size: 18px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+  .sublabel { font-size: 13px; color: #aaa; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 10px; border-radius: 20px; }
+  .tag-lifo { background: #EEEDFE; color: #534AB7; }
+  .tag-fifo { background: #E1F5EE; color: #0F6E56; }
+  .viz { background: #1a1a1a; border-radius: 10px; border: 1px solid #333; padding: 16px; min-height: 100px; display: flex; align-items: center; gap: 8px; overflow: hidden; position: relative; }
+  .viz.vertical { flex-direction: column-reverse; justify-content: flex-start; align-items: stretch; min-height: 180px; }
+  .plate { border-radius: 8px; font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; animation: pop-in 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+  .plate.leaving { animation: pop-out 0.25s ease forwards; }
+  @keyframes pop-in { from { opacity:0; transform:scale(0.7); } to { opacity:1; transform:scale(1); } }
+  @keyframes pop-out { from { opacity:1; transform:scale(1); } to { opacity:0; transform:scale(0.7); } }
+  .stack-plate { height: 48px; background: #AFA9EC; color: #26215C; }
+  .stack-plate.top { background: #7F77DD; color: #EEEDFE; outline: 2px solid #534AB7; }
+  .queue-plate { width: 80px; height: 60px; background: #5DCAA5; color: #04342C; flex-shrink: 0; }
+  .queue-plate.front { background: #1D9E75; color: #E1F5EE; outline: 2px solid #0F6E56; }
+  .btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  button { cursor: pointer; background: #1a1a1a; border: 1px solid #444; color: #fff; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-family: inherit; transition: background 0.15s; }
+  button:hover { background: #2a2a2a; }
+  button:active { transform: scale(0.97); }
+  .msg { font-size: 13px; color: #666; min-height: 20px; font-style: italic; }
+  .empty-msg { font-size: 13px; color: #aaa; }
+  hr { border: none; border-top: 1px solid #333; }
+</style>
 </head>
 <body>
-
-  <h2>Binary Calculator</h2>
-
-  <label>Binary 1:</label>
-  <input type="text" id="bin1" placeholder="e.g. 1010">
-
-  <label>Binary 2:</label>
-  <input type="text" id="bin2" placeholder="e.g. 0101">
-
-  <label>Operation:</label>
-  <select id="operation">
-    <option value="add">Add</option>
-    <option value="subtract">Subtract</option>
-    <option value="multiply">Multiply</option>
-    <option value="divide">Divide</option>
-  </select>
-
-  <button onclick="calculate()">Calculate</button>
-
-  <div class="result">
-    <strong>Result (Binary):</strong> <span id="resultBin"></span><br>
-    <strong>Result (Decimal):</strong> <span id="resultDec"></span>
+<div class="wrap">
+  <div>
+    <h1>Stack & Queue</h1>
+    <p class="subtitle">Two ways to organize data — try the buttons to see how each one works.</p>
   </div>
 
-  <div class="error" id="calcError"></div>
+  <div class="section">
+    <div class="section-title">Stack <span class="tag tag-lifo">Last in, first out</span></div>
+    <div class="sublabel">Like a stack of plates. You add to the top. You remove from the top. The most recent item always leaves first.</div>
+    <div class="viz vertical" id="stack-viz">
+      <div class="empty-msg" id="stack-empty">No plates yet</div>
+    </div>
+    <div class="btns">
+      <button onclick="stackPush()">Add a plate (push)</button>
+      <button onclick="stackPop()">Remove top plate (pop)</button>
+    </div>
+    <div class="msg" id="stack-msg">Try adding a few plates, then removing one.</div>
+  </div>
 
   <hr>
 
-  <h3>Decimal to Binary Converter (Extra Credit)</h3>
-
-  <input type="number" id="decInput" placeholder="Enter decimal number">
-  <button onclick="convertDecimal()">Convert</button>
-
-  <div class="result">
-    <strong>Binary:</strong> <span id="decToBinResult"></span>
+  <div class="section">
+    <div class="section-title">Queue <span class="tag tag-fifo">First in, first out</span></div>
+    <div class="sublabel">Like a line at a coffee shop. New people join the back. The person at the front gets served first.</div>
+    <div class="viz" id="queue-viz">
+      <div class="empty-msg" id="queue-empty">No one in line yet</div>
+    </div>
+    <div class="btns">
+      <button onclick="queueAdd()">Person joins line (enqueue)</button>
+      <button onclick="queueRemove()">Serve front person (dequeue)</button>
+    </div>
+    <div class="msg" id="queue-msg">Try adding a few people, then serving one.</div>
   </div>
+</div>
 
-  <div class="error" id="decError"></div>
+<script>
+  const names = ['Alex','Sam','Jo','Mia','Lee','Kai','Rue','Dana'];
+  const plates = ['A','B','C','D','E','F'];
+  let ni = 0, pi = 0;
+  let stack = [], queue = [];
 
-  <script>
-    function calculate() {
-      const bin1 = document.getElementById('bin1').value.trim();
-      const bin2 = document.getElementById('bin2').value.trim();
-      const op = document.getElementById('operation').value;
-      const error = document.getElementById('calcError');
-      error.innerText = '';
+  function stackPush() {
+    if (stack.length >= 6) { document.getElementById('stack-msg').textContent = 'Stack is full! Remove one first.'; return; }
+    const val = plates[pi++ % plates.length];
+    const el = document.createElement('div');
+    el.className = 'plate stack-plate';
+    el.textContent = 'Plate ' + val;
+    stack.push({ val, el });
+    updateStackHighlight();
+    document.getElementById('stack-empty').style.display = 'none';
+    document.getElementById('stack-viz').appendChild(el);
+    document.getElementById('stack-msg').textContent = 'Added plate ' + val + ' on top. It will be removed first.';
+  }
 
-      if (!bin1 || !bin2) {
-        error.innerText = 'Both binary fields must be filled.';
-        return;
-      }
+  function stackPop() {
+    if (!stack.length) { document.getElementById('stack-msg').textContent = 'Nothing to remove — stack is empty!'; return; }
+    const { val, el } = stack.pop();
+    el.classList.remove('top');
+    el.classList.add('leaving');
+    setTimeout(() => el.remove(), 240);
+    if (!stack.length) document.getElementById('stack-empty').style.display = '';
+    updateStackHighlight();
+    document.getElementById('stack-msg').textContent = 'Removed plate ' + val + ' — it was on top, so it went first.';
+  }
 
-      if (!/^[01]+$/.test(bin1) || !/^[01]+$/.test(bin2)) {
-        error.innerText = 'Only binary numbers (0 and 1) are allowed.';
-        return;
-      }
+  function updateStackHighlight() {
+    stack.forEach((s, i) => s.el.classList.toggle('top', i === stack.length - 1));
+  }
 
-      const a = parseInt(bin1, 2);
-      const b = parseInt(bin2, 2);
-      let result;
+  function queueAdd() {
+    if (queue.length >= 7) { document.getElementById('queue-msg').textContent = 'Line is full! Serve someone first.'; return; }
+    const name = names[ni++ % names.length];
+    const el = document.createElement('div');
+    el.className = 'plate queue-plate';
+    el.textContent = name;
+    queue.push({ name, el });
+    updateQueueHighlight();
+    document.getElementById('queue-empty').style.display = 'none';
+    document.getElementById('queue-viz').appendChild(el);
+    document.getElementById('queue-msg').textContent = name + ' joined the back of the line.';
+  }
 
-      switch (op) {
-        case 'add': result = a + b; break;
-        case 'subtract': result = a - b; break;
-        case 'multiply': result = a * b; break;
-        case 'divide':
-          if (b === 0) {
-            error.innerText = 'Division by zero is not allowed.';
-            return;
-          }
-          result = Math.floor(a / b);
-          break;
-      }
+  function queueRemove() {
+    if (!queue.length) { document.getElementById('queue-msg').textContent = 'Nobody in line!'; return; }
+    const { name, el } = queue.shift();
+    el.classList.remove('front');
+    el.classList.add('leaving');
+    setTimeout(() => el.remove(), 240);
+    if (!queue.length) document.getElementById('queue-empty').style.display = '';
+    updateQueueHighlight();
+    document.getElementById('queue-msg').textContent = name + ' was served — they were first in line, so they went first.';
+  }
 
-      document.getElementById('resultBin').innerText = result.toString(2);
-      document.getElementById('resultDec').innerText = result.toString(10);
-    }
-
-    function convertDecimal() {
-      const dec = document.getElementById('decInput').value.trim();
-      const error = document.getElementById('decError');
-      error.innerText = '';
-
-      if (dec === '') {
-        error.innerText = 'Please enter a decimal number.';
-        return;
-      }
-
-      if (isNaN(dec)) {
-        error.innerText = 'Invalid input.';
-        return;
-      }
-
-      document.getElementById('decToBinResult').innerText = parseInt(dec).toString(2);
-    }
-  </script>
+  function updateQueueHighlight() {
+    queue.forEach((q, i) => q.el.classList.toggle('front', i === 0));
+  }
+</script>
 </body>
 </html>

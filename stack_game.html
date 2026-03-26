@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCS 2D Array Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1a3a;
+      color: white;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .status-bar, .info-row, .dialogue, .quiz-box {
+      background: #09152f;
+      border: 1px solid #233a63;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .status-bar span {
+      display: inline-block;
+      margin-right: 20px;
+      margin-bottom: 8px;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    #game-board {
+      width: 600px;
+      height: 600px;
+      margin: 20px auto;
+      display: grid;
+      grid-template-columns: repeat(10, 60px);
+      grid-template-rows: repeat(10, 60px);
+      border: 3px solid #4b628a;
+      background: #223047;
+    }
+
+    .tile {
+      width: 60px;
+      height: 60px;
+      border: 1px solid #3a4f70;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .empty { background: #223047; }
+    .player { background: #3b82f6; }
+    .npc { background: #22c55e; }
+    .ainpc { background: #a855f7; }
+    .coin { background: #f59e0b; }
+
+    #dialogue-box, #quiz-feedback {
+      min-height: 60px;
+      line-height: 1.5;
+    }
+
+    #quiz-panel {
+      display: none;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      max-width: 500px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>OCS 2D Array Game</h1>
+
+    <div class="status-bar">
+      <span id="frontend-status">Frontend: Running</span>
+      <span id="game-status">Game API: Checking...</span>
+      <span id="ai-status">AI API: Checking...</span>
+    </div>
+
+    <div class="info-row">
+      <div class="card">
+        <h3>Scoreboard</h3>
+        <p id="score">Score: 0</p>
+        <p id="coins">Coins: 0</p>
+        <p id="quests">Completed Quests: 0</p>
+      </div>
+
+      <div class="card">
+        <h3>Lesson Goal</h3>
+        <p>Learn how 2D arrays use rows and columns.</p>
+        <p>Move with WASD or arrow keys.</p>
+        <p>Press E next to a character to interact.</p>
+        <button id="interact-btn">Interact</button>
+        <p>P = Player, N = Teacher/Quiz, A = AI Tutor, C = Coin</p>
+      </div>
+    </div>
+
+    <div id="game-board"></div>
+
+    <div class="dialogue">
+      <h3>Interaction Panel</h3>
+      <div id="dialogue-box">Walk to the Concept Teacher, Quiz Station, or AI Tutor.</div>
+    </div>
+
+    <div class="quiz-box" id="quiz-panel">
+      <h3>Quiz Panel</h3>
+      <div id="quiz-question">Question will appear here.</div>
+      <input type="text" id="answer-input" placeholder="Type your answer here" />
+      <br />
+      <button id="submit-answer-btn">Submit Answer</button>
+      <div id="quiz-feedback"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/stack_game.js"></script>
+</body>
+</html>

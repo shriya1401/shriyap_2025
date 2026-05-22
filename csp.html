@@ -1,0 +1,520 @@
+<!--
+Acknowledgment: Portions of this program were developed with assistance from ChatGPT,
+an AI tool, for coding guidance, debugging, and formatting support. I reviewed and
+understand the code and its functionality.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protein Intake Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #e8ecf3;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 28px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      color: #1a237e;
+      letter-spacing: -1px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #475569;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .panel,
+    .results-panel {
+      background: #fff;
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+      border: 1px solid #e2e8f0;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1a237e;
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 10px;
+      border: none;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      color: #f1f5f9;
+      background: #2d2d2d;
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    input:focus,
+    select:focus {
+      background: #3d3d3d;
+    }
+
+    input::placeholder {
+      color: #94a3b8;
+    }
+
+    select option {
+      background: #2d2d2d;
+      color: #f1f5f9;
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.18s;
+      background: #9ca3af;
+      color: #fff;
+      box-shadow: none;
+      border: 2px solid #93c5fd;
+    }
+
+    button:hover {
+      background: #374151;
+      border-color: #374151;
+      transform: translateY(-1px);
+      box-shadow: none;
+      border: 2px solid #1d4ed8;
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .food-list,
+    .results {
+      background: #f1f5f9;
+      border-radius: 14px;
+      padding: 16px;
+      min-height: 220px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .food-item {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #475569;
+      transition: border-color 0.15s;
+    }
+
+    .food-item:hover {
+      border-color: #9ca3af;
+    }
+
+    .food-item strong {
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    .food-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid #e2e8f0;
+    }
+
+    .empty-text {
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .result-dashboard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .result-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .result-card-title {
+      color: #94a3b8;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+
+    .result-card-value {
+      color: #1a237e;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .wide-card {
+      grid-column: span 2;
+    }
+
+    .progress-shell {
+      background: #e2e8f0;
+      border-radius: 999px;
+      height: 7px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: #4b5563;
+      width: 0%;
+      transition: width 0.6s ease;
+    }
+
+    .recommendation {
+      margin-top: 12px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .recommendation-success {
+      background: #f0fdf4;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+
+    .recommendation-warning {
+      background: #fffbeb;
+      color: #92400e;
+      border: 1px solid #fde68a;
+    }
+
+    .recommendation-low {
+      background: #fff1f2;
+      color: #9f1239;
+      border: 1px solid #fecdd3;
+    }
+
+    @media (max-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .result-dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .wide-card {
+        grid-column: span 1;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Protein Intake Tracker</h1>
+    <p class="subtitle">Log foods, track protein, and get a recommendation based on your daily goal.</p>
+
+    <div class="grid">
+      <div class="panel">
+        <h2>Add Food</h2>
+
+        <label for="foodName">Food Name</label>
+        <input id="foodName" type="text" placeholder="Example: Greek Yogurt" />
+
+        <label for="proteinAmount">Protein Grams</label>
+        <input id="proteinAmount" type="number" min="1" placeholder="Example: 18" />
+
+        <label for="mealType">Meal Type</label>
+        <select id="mealType">
+          <option>Breakfast</option>
+          <option>Lunch</option>
+          <option>Dinner</option>
+          <option>Snack</option>
+        </select>
+
+        <label for="proteinGoal">Daily Protein Goal</label>
+        <input id="proteinGoal" type="number" min="1" value="60" />
+
+        <button onclick="addFood()">Add Food</button>
+        <button onclick="runProteinAnalysis()">Analyze Protein</button>
+        <button onclick="clearFoods()">Clear All</button>
+      </div>
+
+      <div class="panel">
+        <h2>Food Log</h2>
+        <div class="food-list" id="foodOutput">
+          <div class="empty-text">No foods added yet.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-panel">
+      <h2>Protein Results</h2>
+      <div class="results" id="resultsOutput">
+        <div class="empty-text">Add foods, then click Analyze Protein.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // List that stores all foods entered by the user.
+    let foods = [];
+
+    // Reads user input, validates it, and stores the food in the foods list.
+    function addFood() {
+      let name = document.getElementById("foodName").value.trim();
+      let protein = Number(document.getElementById("proteinAmount").value);
+      let meal = document.getElementById("mealType").value;
+
+      if (name === "" || protein <= 0) {
+        document.getElementById("resultsOutput").innerHTML =
+          '<div class="empty-text">Please enter a valid food name and protein amount.</div>';
+        return;
+      }
+
+      // Stores one food object in the list.
+      foods.push({ name: name, protein: protein, meal: meal });
+      displayFoods();
+
+      document.getElementById("foodName").value = "";
+      document.getElementById("proteinAmount").value = "";
+      document.getElementById("mealType").value = "Breakfast";
+    }
+
+    /*
+      This procedure analyzes the list of foods based on the user's protein goal.
+      It uses sequencing, selection, and iteration to calculate the total protein,
+      count high-protein foods, find the highest-protein food, and return a recommendation.
+    */
+    function analyzeProtein(foodList, goal) {
+      let totalProtein = 0;
+      let highProteinFoods = 0;
+      let highestFood = "";
+      let highestProtein = 0;
+
+      // Iteration: loop through each food in the list.
+      for (let i = 0; i < foodList.length; i++) {
+        let food = foodList[i];
+
+        totalProtein = totalProtein + food.protein;
+
+        // Selection: count foods with at least 20 grams of protein.
+        if (food.protein >= 20) {
+          highProteinFoods = highProteinFoods + 1;
+        }
+
+        // Selection: update the highest-protein food.
+        if (food.protein > highestProtein) {
+          highestProtein = food.protein;
+          highestFood = food.name;
+        }
+      }
+
+      let remaining = goal - totalProtein;
+      let recommendation = "";
+
+      // Selection: choose a recommendation based on progress toward the goal.
+      if (totalProtein >= goal) {
+        recommendation = "Goal reached! You met your daily protein target.";
+      } else if (totalProtein >= goal * 0.75) {
+        recommendation = "Almost there! Add one more protein-rich food.";
+      } else {
+        recommendation = "Needs improvement. Add more protein throughout the day.";
+      }
+
+      return {
+        totalProtein: totalProtein,
+        highProteinFoods: highProteinFoods,
+        highestFood: highestFood,
+        highestProtein: highestProtein,
+        remaining: remaining,
+        recommendation: recommendation
+      };
+    }
+
+    // Gets the protein goal, calls analyzeProtein, and displays the results.
+    function runProteinAnalysis() {
+      if (foods.length === 0) {
+        document.getElementById("resultsOutput").innerHTML =
+          '<div class="empty-text">Please add at least one food first.</div>';
+        return;
+      }
+
+      let goal = Number(document.getElementById("proteinGoal").value);
+
+      if (goal <= 0) {
+        document.getElementById("resultsOutput").innerHTML =
+          '<div class="empty-text">Please enter a valid protein goal.</div>';
+        return;
+      }
+
+      // Calls the student-developed procedure.
+      let result = analyzeProtein(foods, goal);
+
+      let remainingText = result.remaining > 0 ? result.remaining + "g remaining" : "Goal completed";
+
+      let recommendationClass = "";
+      if (result.totalProtein >= goal) {
+        recommendationClass = "recommendation recommendation-success";
+      } else if (result.totalProtein >= goal * 0.75) {
+        recommendationClass = "recommendation recommendation-warning";
+      } else {
+        recommendationClass = "recommendation recommendation-low";
+      }
+
+      let progressPercent = Math.round((result.totalProtein / goal) * 100);
+      if (progressPercent > 100) {
+        progressPercent = 100;
+      }
+
+      // Output: displays the calculated protein results on the page.
+      document.getElementById("resultsOutput").innerHTML =
+        '<div class="result-dashboard">' +
+          '<div class="result-card">' +
+            '<div class="result-card-title">Total Protein</div>' +
+            '<div class="result-card-value">' + result.totalProtein + 'g</div>' +
+          '</div>' +
+          '<div class="result-card">' +
+            '<div class="result-card-title">Daily Goal</div>' +
+            '<div class="result-card-value">' + goal + 'g</div>' +
+          '</div>' +
+          '<div class="result-card">' +
+            '<div class="result-card-title">High-Protein Foods</div>' +
+            '<div class="result-card-value">' + result.highProteinFoods + '</div>' +
+          '</div>' +
+          '<div class="result-card wide-card">' +
+            '<div class="result-card-title">Progress</div>' +
+            '<div class="result-card-value">' + remainingText + '</div>' +
+            '<div class="progress-shell">' +
+              '<div class="progress-fill" id="pFill"></div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="result-card">' +
+            '<div class="result-card-title">Top Protein Food</div>' +
+            '<div class="result-card-value" style="font-size:15px;line-height:1.4">' +
+              result.highestFood + '<br>(' + result.highestProtein + 'g)' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="' + recommendationClass + '">' + result.recommendation + '</div>';
+
+      setTimeout(function () {
+        let f = document.getElementById("pFill");
+        if (f) f.style.width = progressPercent + "%";
+      }, 60);
+    }
+
+    // Displays every food currently stored in the foods list.
+    function displayFoods() {
+      let output = document.getElementById("foodOutput");
+
+      if (foods.length === 0) {
+        output.innerHTML = '<div class="empty-text">No foods added yet.</div>';
+        return;
+      }
+
+      let html = "";
+
+      for (let i = 0; i < foods.length; i++) {
+        let food = foods[i];
+        html +=
+          '<div class="food-item">' +
+            '<strong>' + food.name + '</strong><br>' +
+            'Protein: ' + food.protein + 'g<br>' +
+            'Meal: ' + food.meal + '<br>' +
+            '<span class="tag">Food ' + (i + 1) + '</span>' +
+          '</div>';
+      }
+
+      output.innerHTML = html;
+    }
+
+    // Clears the list and resets the displayed output.
+    function clearFoods() {
+      foods = [];
+      displayFoods();
+      document.getElementById("resultsOutput").innerHTML =
+        '<div class="empty-text">Add foods, then click Analyze Protein.</div>';
+    }
+  </script>
+</body>
+</html>
